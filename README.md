@@ -1,4 +1,4 @@
-# Day14_tiktoklikescroller_flutter
+# Day14_Persistent-Bottom-Navigation-Bar_flutter
 
 
 A vertical fullscreen scroll implementation that snaps in place, similar to the TikTok app.
