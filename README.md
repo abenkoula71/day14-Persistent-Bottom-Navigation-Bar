@@ -19,51 +19,42 @@ import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 # 3-use him like this
 
 ```
-import 'package:flutter/material.dart';
-import 'package:tiktoklikescroller/tiktoklikescroller.dart';
-
-void main() => runApp(MyApp());
-
 class MyApp extends StatelessWidget {
+  const MyApp({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    final List<Color> colors = <Color>[Colors.red, Colors.blue, Colors.green];
-    final Controller controller = Controller()
-      ...addListener((event) {
-        _handleCallbackEvent(event.direction, event.success);
-      });
-
-    return MaterialApp(
-      home: Scaffold(
-        body: TikTokStyleFullPageScroller(
-          contentSize: colors.length,
-          swipePositionThreshold: 0.2,
-          // ^ the fraction of the screen needed to scroll
-          swipeVelocityThreshold: 2000,
-          // ^ the velocity threshold for smaller scrolls
-          animationDuration: const Duration(milliseconds: 400),
-          // ^ how long the animation will take
-          controller: controller,
-          // ^ registering our own function to listen to page changes
-          builder: (BuildContext context, int index) {
-            return Container(
-                color: colors[index],
-                child: Text(
-                  '$index',
-                  style: const TextStyle(fontSize: 48, color: Colors.white),
-                ),
-              );
-          },
+    return PersistentTabView(
+        context,
+        controller: _controller,
+        screens: _buildScreens(),
+        items: _navBarsItems(),
+        confineInSafeArea: true,
+        backgroundColor: Colors.white, // Default is Colors.white.
+        handleAndroidBackButtonPress: true, // Default is true.
+        resizeToAvoidBottomInset: true, // This needs to be true if you want to move up the screen when keyboard appears. Default is true.
+        stateManagement: true, // Default is true.
+        hideNavigationBarWhenKeyboardShows: true, // Recommended to set 'resizeToAvoidBottomInset' as true while using this argument. Default is true.
+        decoration: NavBarDecoration(
+          borderRadius: BorderRadius.circular(10.0),
+          colorBehindNavBar: Colors.white,
         ),
-      ),
+        popAllScreensOnTapOfSelectedTab: true,
+        popActionScreens: PopActionScreensType.all,
+        itemAnimationProperties: ItemAnimationProperties( // Navigation Bar's items animation properties.
+          duration: Duration(milliseconds: 200),
+          curve: Curves.ease,
+        ),
+        screenTransitionAnimation: ScreenTransitionAnimation( // Screen transition animation on change of selected tab.
+          animateTabTransition: true,
+          curve: Curves.ease,
+          duration: Duration(milliseconds: 200),
+        ),
+        navBarStyle: NavBarStyle.style1, // Choose the nav bar style with this property.
     );
   }
-
-  void _handleCallbackEvent(ScrollDirection direction, ScrollSuccess success,
-      {int? currentIndex}) {
-    print(
-        "Scroll callback received with data: {direction: $direction, success: $success and index: ${currentIndex ?? 'not given'}}");
-  }
-
 }
 ```
+
+
+
