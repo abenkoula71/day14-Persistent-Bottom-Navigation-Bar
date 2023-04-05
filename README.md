@@ -14,9 +14,19 @@ dependencies:
 
 ```
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
+
 ```
 
-# 3-use him like this
+# 3-Persistent bottom navigation bar uses PersistentTabController as its controller. Here is how to declare it:
+
+```
+PersistentTabController _controller;
+
+_controller = PersistentTabController(initialIndex: 0);
+
+```
+
+# 4-use him like this
 
 ```
 class MyApp extends StatelessWidget {
