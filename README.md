@@ -10,7 +10,7 @@ dependencies:
   persistent_bottom_nav_bar: ^5.0.2
 ```
 
-# 2-Import the  tiktoklikescroller package in your dart file.
+# 2-Import the  Persistent Bottom Navigation Bar  package in your dart file.
 
 ```
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
