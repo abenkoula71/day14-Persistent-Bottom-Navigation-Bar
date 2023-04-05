@@ -56,5 +56,13 @@ class MyApp extends StatelessWidget {
 }
 ```
 
+```
+List<Widget> _buildScreens() {
+        return [
+          MainScreen(),
+          SettingsScreen()
+        ];
+    }
+```
 
 
