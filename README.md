@@ -7,7 +7,7 @@ A vertical fullscreen scroll implementation that snaps in place, similar to the 
 
 ```
 dependencies:
-  tiktoklikescroller: ^0.2.3
+  persistent_bottom_nav_bar: ^5.0.2
 ```
 
 # 2-Import the  tiktoklikescroller package in your dart file.
